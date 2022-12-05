@@ -1,36 +1,32 @@
-const butInstall = document.getElementById('buttonInstall');
+const butInstall = document.getElementById("buttonInstall");
+let deferredPrompt;
 
 // Logic for installing the PWA
 // TODO: Add an event handler to the `beforeinstallprompt` event
-window.addEventListener('beforeinstallprompt', (event) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    //remove the hidden class from the button
-    butInstall.classList.toggle('hidden', false);
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  butInstall.classList.toggle("hidden", false);
 });
 
 // TODO: Implement a click event handler on the `butInstall` element
-butInstall.addEventListener('click', async () => {
-    const promptEvent = window.deferredPrompt;
-
-    if (deferredPrompt !== null) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === "accept") {
-            deferredPrompt = null;
-            butInstall.classList.toggle('hidden', true);
-        }
-        console.log(`Install prompt: ${outcome}`);
+butInstall.addEventListener("click", async () => {
+  if (deferredPrompt !== null) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === "accepted") {
+      // Install the app
+      deferredPrompt = null;
+      butInstall.classList.toggle("hidden", true);
     }
-    //showing prompt
-//     promptEvent.prompt();
-
-//     window.deferredPrompt = null;
-//     butInstall.classList.toggle('hidden', true);
- });
+    console.log(`User response to prompt: ${outcome}`);
+  }
+});
 
 // TODO: Add an handler for the `appinstalled` event
-window.addEventListener('appinstalled', () => {
-    butInstall.classList.toggle('hidden', true);
-    window.deferredPrompt = null;
+window.addEventListener("appinstalled", () => {
+  // Hide the button
+  butInstall.classList.toggle("hidden", true);
+  // clear the deferredPrompt variable
+  deferredPrompt = null;
 });
