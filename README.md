@@ -2,7 +2,7 @@
 <h3 align="center">JATE</h3>
 
   <p align="center">
-    project_description
+ 
     <br />
     <a href="https://github.com/brendonc-h/Challenge-19-PWA"><strong>Explore the docs »</strong></a>
     <br />
