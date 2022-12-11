@@ -2,8 +2,7 @@
 <h3 align="center">JATE</h3>
 
   <p align="center">
-    project_description
-    <br />
+  <br />
     <a href="https://github.com/brendonc-h/Challenge-19-PWA"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -43,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
 
 Your task is to build a text editor that runs in the browser. The app will be a single-page application that meets the PWA criteria. Additionally, it will feature a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The application will also function offline.
 
